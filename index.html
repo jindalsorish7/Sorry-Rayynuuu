@@ -2,137 +2,643 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Sorry Rayna 💖</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hey Raynaaa 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800;900&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-body {
-    margin: 0;
-    font-family: 'Comic Sans MS', cursive;
-    background: linear-gradient(to bottom right, #ffd6e0, #fff5f7);
+  :root {
+    --pink: #f472b6;
+    --deep-pink: #ec4899;
+    --light-pink: #fce7f3;
+    --cream: #fff8f0;
+    --red-heart: #e11d48;
+    --warm-brown: #92400e;
+    --text: #3b1f2b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #fce7f3;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-image: radial-gradient(circle at 20% 20%, #fbcfe8 0%, transparent 50%),
+                      radial-gradient(circle at 80% 80%, #fda4af 0%, transparent 50%),
+                      radial-gradient(circle at 50% 50%, #fce7f3 0%, transparent 100%);
+  }
+
+  /* Floating hearts background */
+  .hearts-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .heart-float {
+    position: absolute;
+    font-size: 1.2rem;
+    opacity: 0.15;
+    animation: floatUp linear infinite;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0.15; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+  }
+
+  /* Card */
+  .card {
+    position: relative;
+    z-index: 1;
+    background: var(--cream);
+    border-radius: 24px;
+    max-width: 480px;
+    width: 100%;
+    padding: 32px 28px 36px;
+    box-shadow: 0 8px 40px rgba(236,72,153,0.18), 0 2px 8px rgba(236,72,153,0.10);
+    border: 2px solid #fbcfe8;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 31px,
+      #fbcfe820 31px,
+      #fbcfe820 32px
+    );
+  }
+
+  /* Spiral top */
+  .spiral {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .spiral span {
+    width: 14px;
+    height: 18px;
+    border: 2px solid #bbb;
+    border-radius: 50% 50% 0 0;
+    border-bottom: none;
+    display: inline-block;
+    background: #ddd;
+  }
+
+  /* Header */
+  .card-header {
     text-align: center;
-}
+    margin-bottom: 20px;
+  }
 
-/* IMAGE CARD */
-.card img {
-    width: 90%;
-    max-width: 500px;
-    margin-top: 30px;
+  .card-header h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.4rem;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  .card-header h1 span {
+    color: var(--deep-pink);
+  }
+
+  .cutie-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #f9a8d4, #fda4af);
+    color: #9f1239;
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 4px 16px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
+    margin-top: 6px;
+    letter-spacing: 0.5px;
+  }
 
-/* BUTTON */
-.btn {
-    margin-top: 20px;
-    background: #ff4d6d;o
+  /* Notes grid */
+  .notes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .note {
+    background: #fff9f0;
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid #fde68a40;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--text);
+    position: relative;
+  }
+
+  .note::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 10px;
+    background: #fef08a;
+    border-radius: 2px;
+    opacity: 0.8;
+  }
+
+  .note.pink-bg { background: #fdf2f8; border-color: #f9a8d420; }
+  .note.yellow-bg { background: #fffbeb; }
+
+  .note .highlight { color: var(--deep-pink); font-weight: 700; }
+
+  /* Reasons section */
+  .reasons-section {
+    background: #fff9f0;
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    border: 1px solid #fde68a30;
+    position: relative;
+  }
+
+  .reasons-section::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 18px;
+    width: 28px;
+    height: 10px;
+    background: #fef08a;
+    border-radius: 2px;
+    opacity: 0.8;
+  }
+
+  .section-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 0.95rem;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .reasons-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .reasons-list li {
+    font-size: 0.83rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    color: var(--text);
+  }
+
+  .reasons-list li::before {
+    content: '♥';
+    color: var(--red-heart);
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    margin-top: 2px;
+  }
+
+  /* Two-col grid */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .promises-section, .plan-section {
+    background: #fff9f0;
+    border-radius: 14px;
+    padding: 14px;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    position: relative;
+    font-size: 0.82rem;
+    color: var(--text);
+  }
+
+  .promises-section::before, .plan-section::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 14px;
+    width: 28px;
+    height: 10px;
+    background: #fca5a5;
+    border-radius: 2px;
+    opacity: 0.7;
+  }
+
+  .plan-section::before { background: #86efac; }
+
+  .check-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 8px;
+  }
+
+  .check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    font-size: 0.8rem;
+  }
+
+  .check-list li::before {
+    content: '☑';
+    color: var(--deep-pink);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .plan-list {
+    list-style: none;
+    counter-reset: plan;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 8px;
+  }
+
+  .plan-list li {
+    counter-increment: plan;
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    font-size: 0.8rem;
+  }
+
+  .plan-list li::before {
+    content: counter(plan) '.';
+    color: var(--deep-pink);
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  /* PS note */
+  .ps-note {
+    background: #fdf2f8;
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin-bottom: 22px;
+    font-family: 'Caveat', cursive;
+    font-size: 1.1rem;
+    color: var(--text);
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    text-align: center;
+  }
+
+  /* Forgiveness button area */
+  .button-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .forgive-label {
+    font-size: 0.78rem;
+    color: #9ca3af;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .forgive-btn {
+    background: linear-gradient(135deg, #f472b6, #ec4899, #db2777);
     color: white;
     border: none;
-    padding: 15px 25px;
-    font-size: 18px;
-    border-radius: 25px;
+    border-radius: 50px;
+    padding: 16px 36px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
     cursor: pointer;
-    transition: 0.3s;
-}
+    box-shadow: 0 4px 20px rgba(236,72,153,0.45), 0 0 0 0 rgba(236,72,153,0.4);
+    transition: transform 0.15s, box-shadow 0.15s;
+    animation: pulse-glow 2s ease-in-out infinite;
+    letter-spacing: 0.3px;
+  }
 
-.btn:hover {
-    transform: scale(1.1);
-}
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 4px 20px rgba(236,72,153,0.45), 0 0 0 0 rgba(236,72,153,0.4); }
+    50% { box-shadow: 0 6px 30px rgba(236,72,153,0.6), 0 0 0 8px rgba(236,72,153,0.1); }
+  }
 
-/* POPUP */
-.popup {
+  .forgive-btn:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 32px rgba(236,72,153,0.6);
+  }
+
+  .forgive-btn:active {
+    transform: scale(0.97);
+  }
+
+  .click-hint {
+    font-size: 0.72rem;
+    color: #d1d5db;
+    font-style: italic;
+  }
+
+  /* POPUP OVERLAY */
+  .popup-overlay {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
+    inset: 0;
+    background: rgba(251,207,232,0.6);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+
+  .popup-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .popup {
     background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    transition: 0.3s;
-    z-index: 10;
-}
-
-.popup.active {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.popup h2 {
-    color: #ff4d6d;
-}
-
-.overlay {
-    position: fixed;
+    border-radius: 28px;
+    max-width: 360px;
     width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    top: 0;
-    left: 0;
-    display: none;
-}
+    padding: 36px 28px 28px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(236,72,153,0.35), 0 4px 16px rgba(0,0,0,0.08);
+    border: 2px solid #fbcfe8;
+    position: relative;
+    transform: scale(0.85) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    overflow: hidden;
+  }
 
-.overlay.active {
+  .popup-overlay.active .popup {
+    transform: scale(1) translateY(0);
+  }
+
+  .popup-confetti {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .confetti-piece {
+    position: absolute;
+    top: -20px;
+    font-size: 1.2rem;
+    animation: confettiFall linear forwards;
+    opacity: 0;
+  }
+
+  @keyframes confettiFall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(350px) rotate(720deg); opacity: 0; }
+  }
+
+  .popup-emoji {
+    font-size: 3.5rem;
     display: block;
-}
+    margin-bottom: 12px;
+    animation: bounceIn 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.2s both;
+  }
 
-/* FLOATING HEARTS */
-.heart {
-    position: fixed;
-    bottom: -10px;
-    font-size: 20px;
-    animation: floatUp 5s linear infinite;
-}
+  @keyframes bounceIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
 
-@keyframes floatUp {
-    0% {transform: translateY(0);}
-    100% {transform: translateY(-100vh);}
-}
+  .popup h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem;
+    color: var(--text);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .popup h2 span { color: var(--deep-pink); }
+
+  .popup-message {
+    font-size: 0.95rem;
+    color: #6b4358;
+    font-weight: 600;
+    line-height: 1.6;
+    margin: 14px 0 22px;
+    background: linear-gradient(135deg, #fdf2f8, #fff0f6);
+    border-radius: 16px;
+    padding: 14px 16px;
+    border: 1px solid #fbcfe8;
+  }
+
+  .ab-smile {
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    color: var(--deep-pink);
+    font-weight: 700;
+    display: block;
+    margin-top: 8px;
+  }
+
+  .close-btn {
+    background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+    color: var(--deep-pink);
+    border: 2px solid #f9a8d4;
+    border-radius: 50px;
+    padding: 10px 32px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .close-btn:hover {
+    background: linear-gradient(135deg, var(--deep-pink), #db2777);
+    color: white;
+    border-color: var(--deep-pink);
+    transform: scale(1.04);
+  }
+
+  /* Decorative hearts on popup */
+  .popup-hearts {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 1rem;
+  }
+
+  .popup-hearts span {
+    animation: heartPop 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+  }
+  .popup-hearts span:nth-child(1) { animation-delay: 0.4s; }
+  .popup-hearts span:nth-child(2) { animation-delay: 0.55s; }
+  .popup-hearts span:nth-child(3) { animation-delay: 0.7s; }
+
+  @keyframes heartPop {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
 </style>
-
 </head>
-
 <body>
 
+<!-- Floating hearts bg -->
+<div class="hearts-bg" id="heartsBg"></div>
+
+<!-- CARD -->
 <div class="card">
-    <!-- PUT YOUR IMAGE NAME HERE -->
-    <img src="606327E2-26A4-404F-B871-3D2910E276C9.png" alt="Sorry Rayna">
+  <div class="spiral">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="card-header">
+    <h1>Hey, <span>Raynaaa</span> 💕</h1>
+    <div class="cutie-badge">🔔 CUTIIEEE ALERT!</div>
+  </div>
+
+  <div class="notes-grid">
+    <div class="note yellow-bg">
+      So… I did something <span class="highlight">super stupid 🙈</span> and now my CUTIIEEE is angry with me 😢
+    </div>
+    <div class="note pink-bg" style="text-align:center;">
+      I just want to say…<br>
+      <span class="highlight" style="font-size:1rem; display:block; margin-top:6px;">I AM REALLY SORRY 🥺</span>
+    </div>
+  </div>
+
+  <div class="reasons-section">
+    <div class="section-title">Reasons why YOU are the bestest:</div>
+    <ul class="reasons-list">
+      <li>You are super duper cute 💕</li>
+      <li>You understand me (even my bakwas) 😊</li>
+      <li>You have the sweetest heart 💖</li>
+      <li>You deserve all the waffles and kinderjoys in the world 🤤</li>
+      <li>You = My Person 💗</li>
+    </ul>
+  </div>
+
+  <div class="two-col">
+    <div class="promises-section">
+      <div class="section-title">I promise…</div>
+      <ul class="check-list">
+        <li>No more stupid fights 🤭</li>
+        <li>More love 💕</li>
+        <li>More waffles dates 🧇</li>
+        <li>Unlimited kinderjoys 😊</li>
+        <li>Always annoying you (in a cute way) 😁</li>
+      </ul>
+    </div>
+    <div class="plan-section">
+      <div class="section-title">Our perfect plan:</div>
+      <ol class="plan-list">
+        <li>Eat waffles 🧇</li>
+        <li>Kinderjoy time 🍫</li>
+        <li>Sorry hug 🥰</li>
+        <li>Be CUTIIEES together forever 💕</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="ps-note">
+    P.S. Aapki smile is my favorite thing 💗
+  </div>
+
+  <div class="button-area">
+    <div class="forgive-label">Forgiveness button (dabaa do naaa)</div>
+    <button class="forgive-btn" onclick="openPopup()">Theek hai, I forgive you 🤍</button>
+    <div class="click-hint">Click if you still love me even 1%</div>
+  </div>
 </div>
 
-<button class="btn" onclick="openPopup()">Tap here if you're still angry 😡</button>
+<!-- POPUP -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup">
+    <div class="popup-confetti" id="confettiContainer"></div>
 
-<div class="overlay" id="overlay"></div>
+    <span class="popup-emoji">🥺💖</span>
+    <h2>YAYYY <span>Raynaaa</span><br>CUTIIIEEE</h2>
 
-<div class="popup" id="popup">
-    <h2>YAYYY 💖</h2>
-    <p>
-        Raynaaa CUTIIIEEE 🥺<br><br>
-        Thank you for forgiving me 😭<br>
-        Sorish promises unlimited kinderjoy 🍫 + waffles 🧇<br><br>
-        Ab smile karo 😌💖
-    </p>
-    <button class="btn" onclick="closePopup()">Close</button>
+    <div class="popup-message">
+      Thank you for forgiving me 😭<br>
+      Sorish promises unlimited kinderjoy 🍫 + waffles 🧇
+      <span class="ab-smile">Ab smile karo 😌💖</span>
+    </div>
+
+    <button class="close-btn" onclick="closePopup()">Close 💕</button>
+
+    <div class="popup-hearts">
+      <span>💖</span>
+      <span>🤍</span>
+      <span>💕</span>
+    </div>
+  </div>
 </div>
 
 <script>
-function openPopup() {
-    document.getElementById("popup").classList.add("active");
-    document.getElementById("overlay").classList.add("active");
-}
+  // Floating hearts background
+  const heartsBg = document.getElementById('heartsBg');
+  const emojis = ['💕', '💖', '🤍', '💗', '💓', '✨', '🌸'];
+  for (let i = 0; i < 20; i++) {
+    const el = document.createElement('div');
+    el.className = 'heart-float';
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
+    el.style.animationDuration = (8 + Math.random() * 12) + 's';
+    el.style.animationDelay = (Math.random() * 12) + 's';
+    heartsBg.appendChild(el);
+  }
 
-function closePopup() {
-    document.getElementById("popup").classList.remove("active");
-    document.getElementById("overlay").classList.remove("active");
-}
+  // Confetti
+  function spawnConfetti() {
+    const container = document.getElementById('confettiContainer');
+    container.innerHTML = '';
+    const confettiEmojis = ['💖', '🌸', '✨', '💕', '🎉', '💗', '🍫', '🧇', '⭐'];
+    for (let i = 0; i < 18; i++) {
+      const el = document.createElement('div');
+      el.className = 'confetti-piece';
+      el.textContent = confettiEmojis[Math.floor(Math.random() * confettiEmojis.length)];
+      el.style.left = (Math.random() * 90 + 5) + '%';
+      el.style.fontSize = (0.9 + Math.random() * 0.8) + 'rem';
+      el.style.animationDuration = (1.5 + Math.random() * 2) + 's';
+      el.style.animationDelay = (Math.random() * 1) + 's';
+      container.appendChild(el);
+    }
+  }
 
-// floating hearts
-for(let i=0;i<25;i++){
-    let heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "💖";
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.animationDuration = (3 + Math.random()*3) + "s";
-    document.body.appendChild(heart);
-}
+  function openPopup() {
+    document.getElementById('popupOverlay').classList.add('active');
+    spawnConfetti();
+  }
+
+  function closePopup() {
+    document.getElementById('popupOverlay').classList.remove('active');
+  }
+
+  // Close on overlay click
+  document.getElementById('popupOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closePopup();
+  });
 </script>
-
 </body>
 </html>
